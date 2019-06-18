@@ -13,7 +13,7 @@ RUN apt-get -y install libicu-dev libtinfo-dev libgmp-dev
 RUN mkdir -p $HOME/.local/bin
 
 # Install haskell ide engine
-RUN git clone https://github.com/haskell/haskell-ide-engine --recurse-submodules \
+RUN git clone --branch 0.10.0.0 https://github.com/haskell/haskell-ide-engine --recurse-submodules \
     && cd haskell-ide-engine \
     && sed -i "s|lts-13.18 # GHC 8.6.4|lts-13.25 # GHC 8.6.5 |g" shake.yaml \
     && stack install.hs cabal-hie-8.6.5 \
